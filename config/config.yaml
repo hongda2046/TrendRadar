@@ -30,10 +30,35 @@ report:
 
 notification:
   enable_notification: true # 是否启用通知功能，如果 false，则不发送手机通知
+  channels:
+    # 飞书机器人
+    - type: feishu
+      enabled: false
+      webhook: ""
+    # 钉钉机器人
+    - type: dingtalk
+      enabled: false
+      webhook: ""
+    # 企业微信机器人
+    - type: wecom
+      enabled: false
+      webhook: ""
+    # Telegram Bot
+    - type: telegram
+      enabled: false
+      token: ""
+      chat_id: ""
+    # ntfy 推送 (新增配置)
+    - type: ntfy
+      enabled: true
+      topic: "Trendradar-hd-860913"
+      server_url: "https://ntfy.sh"
+      token: ""
   message_batch_size: 4000 # 消息分批大小（字节）(这个配置别动)
   dingtalk_batch_size: 20000 # 钉钉消息分批大小（字节）(这个配置也别动)
   batch_send_interval: 1 # 批次发送间隔（秒）
   feishu_message_separator: "━━━━━━━━━━━━━━━━━━━" # feishu 消息分割线
+  
 
   # 🕐 推送时间窗口控制（可选功能）
   # 用途：限制推送的时间范围，避免非工作时间打扰
@@ -65,7 +90,7 @@ notification:
     email_smtp_server: "" # SMTP服务器地址（可选，留空自动识别）
     email_smtp_port: "" # SMTP端口（可选，留空自动识别）
     ntfy_server_url: "" # ntfy服务器地址，默认使用公共服务，可改为自托管地址
-    ntfy_topic: "Trendradar-hd-860913" # ntfy主题名称
+    ntfy_topic: "" # ntfy主题名称
     ntfy_token: "" # ntfy访问令牌（可选，用于私有主题）
 
 # 用于让关注度更高的新闻在更前面显示，即用算法重新组合不同平台的热搜排序形成你侧重的热搜，合起来是 1 就行
