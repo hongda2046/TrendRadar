@@ -3825,7 +3825,7 @@ def send_to_ntfy(
         try:
             response = requests.post(
                 url,
-                headers=current_headers,
+                headers="",
                 data=batch_content.encode("utf-8"),
                 proxies=proxies,
                 timeout=30,
